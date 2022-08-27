@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Card } from './components/card/interfaces/card.entity';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,30 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'memory-game';
-  cards = [
+  cards: Card[] = [
     {
-      front: 'front 1',
+      id: '1',
+      content: '🤣',
+      flipped: false,
+      found: false,
     },
     {
-      front: 'front 2',
+      id: '2',
+      content: '🤣',
+      flipped: false,
+      found: false,
     },
     {
-      front: 'front 3',
+      id: '3',
+      content: '😍',
+      flipped: false,
+      found: false,
+    },
+    {
+      id: '4',
+      content: '😍',
+      flipped: false,
+      found: false,
     },
   ];
 }

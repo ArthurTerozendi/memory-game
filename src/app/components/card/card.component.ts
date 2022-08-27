@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,6 +6,7 @@ import {
   transition,
   animate,
 } from '@angular/animations';
+import { Card } from './interfaces/card.entity';
 
 @Component({
   selector: 'app-card',
@@ -31,13 +32,16 @@ import {
   ],
 })
 export class CardComponent implements OnInit {
-  @Input() frontsideContent = '';
-  flippedCard = 'inactive';
+  @Input() card = new Card();
+  @Output() clickEvent: EventEmitter<Card> = new EventEmitter();
+
+  flippedCard = this.card.flipped ? 'active' : 'inactive';
   constructor() {}
 
   ngOnInit(): void {}
 
   flipCard() {
     this.flippedCard = this.flippedCard == 'inactive' ? 'active' : 'inactive';
+    this.clickEvent.emit(this.card);
   }
 }
