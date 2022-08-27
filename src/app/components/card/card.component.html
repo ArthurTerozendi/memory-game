@@ -1,7 +1,10 @@
 <div class="card">
   <div class="card-inner" (click)="flipCard()" [@flipState]="flippedCard">
     <div class="content card-back">
-      <h2>{{ backsideContent }}</h2>
+      <img
+        src="assets/card_back.jpg"
+        alt="card back"
+      />
     </div>
     <div class="content card-front">
       <h2>{{ frontsideContent }}</h2>

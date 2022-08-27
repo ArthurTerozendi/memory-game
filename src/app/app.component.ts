@@ -9,16 +9,13 @@ export class AppComponent {
   title = 'memory-game';
   cards = [
     {
-      back: 'back 1',
-      front: 'front 1'
+      front: 'front 1',
     },
     {
-      back: 'back 2',
-      front: 'front 2'
+      front: 'front 2',
     },
     {
-      back: 'back 3',
-      front: 'front 3'
+      front: 'front 3',
     },
   ];
 }

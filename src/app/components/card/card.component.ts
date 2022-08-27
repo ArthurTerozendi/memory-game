@@ -31,7 +31,6 @@ import {
   ],
 })
 export class CardComponent implements OnInit {
-  @Input() backsideContent = '';
   @Input() frontsideContent = '';
   flippedCard = 'inactive';
   constructor() {}
