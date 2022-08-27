@@ -7,6 +7,7 @@ import {
   animate,
 } from '@angular/animations';
 import { Card } from './interfaces/card.entity';
+import { CardService } from './card.service';
 
 @Component({
   selector: 'app-card',
@@ -33,15 +34,25 @@ import { Card } from './interfaces/card.entity';
 })
 export class CardComponent implements OnInit {
   @Input() card = new Card();
-  @Output() clickEvent: EventEmitter<Card> = new EventEmitter();
 
   flippedCard = this.card.flipped ? 'active' : 'inactive';
-  constructor() {}
+  constructor(private cardService: CardService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cardService.flipCardToInitialState$.subscribe((flipCard) => {
+      console.log('flip cards');
+      if (!this.card.found) this.flippedCard = 'inactive';
+    });
+    this.cardService.foundCard$.subscribe((cards) => {
+      console.log('found card');
+      cards.forEach((c) => {
+        if (c.id === this.card.id) this.card.found = true;
+      });
+    });
+  }
 
   flipCard() {
-    this.flippedCard = this.flippedCard == 'inactive' ? 'active' : 'inactive';
-    this.clickEvent.emit(this.card);
+    this.flippedCard = 'active';
+    this.cardService.emitFlippedCard(this.card);
   }
 }
