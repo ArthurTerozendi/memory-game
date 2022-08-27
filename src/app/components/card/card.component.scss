@@ -4,6 +4,7 @@
     background-color: transparent;
     perspective: 1000px;
     cursor: pointer;
+    margin: 10px;
 }
 
 .card-inner {
@@ -13,7 +14,7 @@
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    box-shadow: 3px 3px 25px 3px #12121266;
+    box-shadow: 1px 1px 5px 1px #12121266;
     border-radius: 3px;
 }
 .card:hover .card-inner {

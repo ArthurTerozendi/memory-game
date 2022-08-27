@@ -2,5 +2,9 @@
   <h1>Memory Game</h1>
 </div>
 <div class="content">
-  <app-card></app-card>
+  <app-card
+    *ngFor="let card of cards"
+    [backsideContent]="card.back"
+    [frontsideContent]="card.front"
+  ></app-card>
 </div>

@@ -8,4 +8,7 @@
 .content {
     height: calc(100% - 50px);
     padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
