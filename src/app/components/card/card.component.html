@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-inner">
+  <div class="card-inner" (click)="flipCard()" [@flipState]="flippedCard">
     <div class="content card-back">
       <h2>{{ backsideContent }}</h2>
     </div>
