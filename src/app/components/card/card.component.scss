@@ -1,10 +1,9 @@
 .card {
-    width: 140px;
-    height: 200px;
+    width: 60px;
+    height: 86px;
     background-color: transparent;
     perspective: 1000px;
     cursor: pointer;
-    margin: 10px;
 }
 
 .card-inner {
@@ -14,7 +13,7 @@
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    box-shadow: 1px 1px 5px 1px #12121266;
+    box-shadow: 0px 2px 2px 1px #00000026;
 }
 
 .content {
@@ -37,7 +36,7 @@
     background-color: #212121;
     color: white;
     transform: rotateY(180deg);
-    font-size: 8em;
+    font-size: 40px;
 }
 
 img {

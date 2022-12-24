@@ -129,7 +129,7 @@ export class AppComponent implements OnInit {
             this.flippedCard = undefined;
           }
         }
-      }, 1250);
+      }, 1000);
     });
   }
 
