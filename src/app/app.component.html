@@ -6,7 +6,10 @@
     <app-card *ngFor="let card of cards" [card]="card"></app-card>
   </div>
   <div class="scores">
-      <h2 id="player01"> Player 1 - {{ cardService.score['1'] }} </h2>
-      <h2 id="player02"> Player 2 - {{ cardService.score['2'] }} </h2>
+    <div class="score">
+      <h2 id="player01"> Player 1 - {{ score['1'] }} </h2>
+      <h2 id="player02"> Player 2 - {{ score['2'] }} </h2>
+    </div>
+    <button (click)="resetBoard()"> Reset </button>
   </div>
 </div>

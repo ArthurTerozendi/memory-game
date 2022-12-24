@@ -7,8 +7,6 @@ import { Card } from './interfaces/card.entity';
 })
 export class CardService {
   countFlippedCards: number = 0;
-  currentPlayer: '1' | '2' = '1';
-  score: { '1': number; '2': number } = { '1': 0, '2': 0 };
 
   private flippedCard = new BehaviorSubject<Card | undefined>(undefined);
   flippedCard$ = this.flippedCard.asObservable();
