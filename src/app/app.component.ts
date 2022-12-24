@@ -121,7 +121,7 @@ export class AppComponent implements OnInit {
   ];
   flippedCard: Card | undefined = undefined;
   foundedCards: Card[] = [];
-  constructor(private cardService: CardService) {}
+  constructor(public cardService: CardService) {}
 
   ngOnInit(): void {
     this.shuffleCards();
@@ -132,9 +132,11 @@ export class AppComponent implements OnInit {
             this.flippedCard = card;
           } else {
             if (this.flippedCard.content === card.content) {
+              this.cardService.score[this.cardService.currentPlayer]++;
               this.foundedCards.push(this.flippedCard, card);
               this.cardService.emitFoundCard(this.foundedCards);
             } else {
+              this.cardService.currentPlayer = this.cardService.currentPlayer == '1' ? '2' : '1';
               this.cardService.emitflipCardToInitialState();
             }
             this.cardService.countFlippedCards = 0;
