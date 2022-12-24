@@ -106,6 +106,18 @@ export class AppComponent implements OnInit {
       flipped: false,
       found: false,
     },
+    {
+      id: '15',
+      content: '🤯',
+      flipped: false,
+      found: false,
+    },
+    {
+      id: '16',
+      content: '🤯',
+      flipped: false,
+      found: false,
+    },
   ];
   flippedCard: Card | undefined = undefined;
   foundedCards: Card[] = [];
