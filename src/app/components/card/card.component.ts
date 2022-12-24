@@ -34,17 +34,16 @@ import { CardService } from './card.service';
 })
 export class CardComponent implements OnInit {
   @Input() card = new Card();
-
+  
   flippedCard = this.card.flipped ? 'active' : 'inactive';
+
   constructor(private cardService: CardService) {}
 
   ngOnInit(): void {
-    this.cardService.flipCardToInitialState$.subscribe((flipCard) => {
-      console.log('flip cards');
+    this.cardService.flipCardToInitialState$.subscribe(() => {
       if (!this.card.found) this.flippedCard = 'inactive';
     });
     this.cardService.foundCard$.subscribe((cards) => {
-      console.log('found card');
       cards.forEach((c) => {
         if (c.id === this.card.id) this.card.found = true;
       });
@@ -52,7 +51,10 @@ export class CardComponent implements OnInit {
   }
 
   flipCard() {
-    this.flippedCard = 'active';
-    this.cardService.emitFlippedCard(this.card);
+    if (this.flippedCard != 'active' && this.cardService.countFlippedCards < 2) {
+      this.cardService.countFlippedCards++;
+      this.flippedCard = 'active';
+      this.cardService.emitFlippedCard(this.card);
+    }
   }
 }

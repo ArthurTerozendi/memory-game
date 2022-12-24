@@ -7,6 +7,8 @@ import { Card } from './interfaces/card.entity';
 })
 export class CardService {
 
+  countFlippedCards: number = 0;
+
   private flippedCard = new BehaviorSubject<Card | undefined>(undefined);
   flippedCard$ = this.flippedCard.asObservable();
   
@@ -24,8 +26,8 @@ export class CardService {
     this.foundCard.next(cards);
   }
 
-  emitflipCardToInitialState(flipCard: boolean): void {
-    this.flipCardToInitialState.next(flipCard);
+  emitflipCardToInitialState(): void {
+    this.flipCardToInitialState.next(true);
   }
 }
 

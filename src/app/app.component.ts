@@ -123,12 +123,13 @@ export class AppComponent implements OnInit {
               this.foundedCards.push(this.flippedCard, card);
               this.cardService.emitFoundCard(this.foundedCards);
             } else {
-              this.cardService.emitflipCardToInitialState(true);
+              this.cardService.emitflipCardToInitialState();
             }
+            this.cardService.countFlippedCards = 0;
             this.flippedCard = undefined;
           }
         }
-      }, 800);
+      }, 1250);
     });
   }
 
